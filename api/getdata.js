@@ -16,8 +16,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const today = new Date();
-const formattedDate = today.toLocaleDateString('en-CA');
+//const today = new Date();
+//const formattedDate = today.toLocaleDateString('en-CA');
 
 const allTeams = [
     {
@@ -1721,4 +1721,10 @@ async function fetchDataAndSaveToFirebase(d) {
     await delay(500);
 }
 
-fetchDataAndSaveToFirebase(formattedDate);
+// Run every 15 minutes
+setInterval(() => {
+    const today = new Date();
+const formattedDate = today.toLocaleDateString('en-CA');
+    fetchDataAndSaveToFirebase(formattedDate);
+}, 15 * 60 * 1000); // 15 minutes in milliseconds
+//fetchDataAndSaveToFirebase(formattedDate);
