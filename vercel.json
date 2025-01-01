@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "functions": {
+        "api/getdata.js": {
+            "runtime": "nodejs18.x"
+        }
+    },
+    "crons": [
+        {
+            "path": "/api/getdata",
+            "schedule": "*/15 * * * *"
+        }
+    ]
+}
